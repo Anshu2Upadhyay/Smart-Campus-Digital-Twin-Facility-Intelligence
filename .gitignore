@@ -1,0 +1,69 @@
+# ---------------------------------------------------------------
+# Smart Campus Digital Twin & Facility Intelligence
+# Root .gitignore — secrets and build artifacts never committed
+# ---------------------------------------------------------------
+
+# Dependencies
+node_modules/
+.pnp
+.pnp.js
+
+# Build / output directories
+dist/
+build/
+out/
+.next/
+
+# Python bytecode / cache
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+*.egg-info/
+.eggs/
+.build/
+.coverage
+.pytest_cache/
+.tox/
+
+# Environment variables — NEVER commit real secrets
+.env
+.env.local
+.env.*.local
+!.env.example
+
+# Logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+lerna-debug.log*
+
+# OS generated files
+.DS_Store
+DS_Store
+Thumbs.db
+ehthumbs.db
+*.orig
+
+# IDE / editor
+.vscode/
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.csproj
+
+# Runtime uploads & large ML binaries (regenerated at startup)
+uploads/
+*.onnx
+*.pt
+*.weights
+
+# Misc
+.turbo/
+.cache/
+
+# Vite dev-server timestamp cache
+*.timestamp-*.mjs

@@ -1,0 +1,145 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  color-scheme: dark;
+}
+
+html.light, body.light {
+  color-scheme: light;
+  background-color: #f1f5f9;
+  color: #0f172a;
+}
+
+html.dark, body.dark {
+  color-scheme: dark;
+  background-color: #070b14;
+  color: #f8fafc;
+}
+
+h1, h2, h3, h4, h5, h6, .font-heading {
+  font-family: 'Outfit', 'Inter', sans-serif;
+}
+
+.font-handwriting {
+  font-family: 'Caveat', cursive;
+}
+
+
+/* ========================================================================= */
+/* COMMAND-CENTER DARK & LIGHT GLASSMORPHISM UTILITIES                       */
+/* ========================================================================= */
+.glass-panel {
+  background: rgba(15, 23, 42, 0.78);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+html.light .glass-panel {
+  background: rgba(255, 255, 255, 0.88);
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  box-shadow: 0 4px 15px -1px rgba(0, 0, 0, 0.05);
+}
+
+.glass-panel-glow {
+  background: rgba(15, 23, 42, 0.88);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(6, 182, 212, 0.3);
+  box-shadow: 0 10px 35px -5px rgba(6, 182, 212, 0.15), 0 0 15px 0 rgba(6, 182, 212, 0.1);
+}
+
+html.light .glass-panel-glow {
+  background: rgba(255, 255, 255, 0.95);
+  border: 1px solid rgba(6, 182, 212, 0.4);
+  box-shadow: 0 8px 25px -4px rgba(6, 182, 212, 0.15);
+}
+
+.glass-danger-glow {
+  background: rgba(26, 11, 15, 0.9);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(239, 68, 68, 0.45);
+  box-shadow: 0 10px 40px -5px rgba(239, 68, 68, 0.25), 0 0 20px 0 rgba(239, 68, 68, 0.15);
+}
+
+.glass-card-hover {
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.glass-card-hover:hover {
+  transform: translateY(-2px);
+  border-color: rgba(6, 182, 212, 0.45);
+  box-shadow: 0 12px 30px -4px rgba(6, 182, 212, 0.2);
+}
+
+/* ========================================================================= */
+/* SLEEK CYBER DARK SCROLLBAR                                                */
+/* ========================================================================= */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #020617;
+}
+::-webkit-scrollbar-thumb {
+  background: #1e293b;
+  border-radius: 9999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #06b6d4;
+}
+
+/* ========================================================================= */
+/* LEAFLET DIGITAL TWIN DARK THEME & CUSTOM MARKERS                         */
+/* ========================================================================= */
+.leaflet-container {
+  background-color: #020617 !important;
+  font-family: inherit;
+}
+
+.dark-tiles .leaflet-tile-pane {
+  filter: brightness(0.65) invert(1) contrast(3.2) hue-rotate(205deg) saturate(0.35);
+}
+
+/* Custom Marker Pulsating Beacon Animations */
+@keyframes beacon-ping {
+  0% { transform: scale(0.9); opacity: 0.9; }
+  50% { transform: scale(1.9); opacity: 0; }
+  100% { transform: scale(0.9); opacity: 0; }
+}
+
+.beacon-pulse {
+  animation: beacon-ping 1.6s cubic-bezier(0, 0, 0.2, 1) infinite;
+}
+
+.beacon-pulse-fast {
+  animation: beacon-ping 1.0s cubic-bezier(0, 0, 0.2, 1) infinite;
+}
+
+/* Building Polygon Blinking Red Alert Animation */
+@keyframes building-alert-pulse {
+  0% { fill-opacity: 0.25; stroke-opacity: 0.6; }
+  50% { fill-opacity: 0.70; stroke-opacity: 1.0; }
+  100% { fill-opacity: 0.25; stroke-opacity: 0.6; }
+}
+
+.building-red-alert path {
+  animation: building-alert-pulse 1.2s ease-in-out infinite;
+  stroke: #ef4444 !important;
+  fill: #ef4444 !important;
+}
+
+/* Radar Sweep Wave */
+@keyframes radar-scan {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.radar-sweep-effect {
+  animation: radar-scan 4s linear infinite;
+}
