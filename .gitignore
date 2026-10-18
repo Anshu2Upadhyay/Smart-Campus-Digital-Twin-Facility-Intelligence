@@ -1,6 +1,6 @@
 # ---------------------------------------------------------------
-# Smart Campus Digital Twin & Facility Intelligence
-# Root .gitignore — secrets and build artifacts never committed
+# Smart Campus Digital Twin & Facility Intelligence Platform
+# Root .gitignore — Production-grade ignore rules
 # ---------------------------------------------------------------
 
 # Dependencies
@@ -8,62 +8,94 @@ node_modules/
 .pnp
 .pnp.js
 
-# Build / output directories
+# Frontend Build & Production Artifacts
 dist/
+dist-ssr/
 build/
 out/
 .next/
+*.timestamp-*.mjs
 
-# Python bytecode / cache
+# Python Environments & Bytecode
 __pycache__/
 *.py[cod]
 *$py.class
 *.so
-*.egg-info/
-.eggs/
-.build/
+.Python
+env/
+.env/
+venv/
+.venv/
+ENV/
+env.bak/
+venv.bak/
+
+# Testing & Coverage
 .coverage
+.coverage.*
+*.cover
 .pytest_cache/
 .tox/
+.nox/
+htmlcov/
+.mypy_cache/
+.ruff_cache/
 
-# Environment variables — NEVER commit real secrets
+# Environment Variables & Secrets (NEVER commit real credentials)
 .env
-.env.local
-.env.*.local
+.env.*
 !.env.example
+*.env
+*.env.local
 
-# Logs
+# Logs & Diagnostics
+logs/
 *.log
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+pnpm-debug.log*
 lerna-debug.log*
 
-# OS generated files
+# OS & Filesystem Cache
 .DS_Store
-DS_Store
+.DS_Store?
+._*
+[Dd]esktop.ini
 Thumbs.db
 ehthumbs.db
 *.orig
+*~
 
-# IDE / editor
-.vscode/
+# IDE & Editor Preferences
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
 .idea/
 *.suo
 *.ntvs*
 *.njsproj
 *.sln
 *.csproj
+*.swp
+*.swo
 
-# Runtime uploads & large ML binaries (regenerated at startup)
+# Runtime Uploads, Video Clips & Large ML Binaries
 uploads/
+!uploads/.gitkeep
+clips/
 *.onnx
 *.pt
+*.pth
 *.weights
+*.bin
+*.mp4
+*.avi
+*.mkv
 
-# Misc
+# Temporary Caches
 .turbo/
 .cache/
-
-# Vite dev-server timestamp cache
-*.timestamp-*.mjs
+.eslintcache
